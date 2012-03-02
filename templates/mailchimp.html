@@ -1,0 +1,43 @@
+{% if form %}
+	<form action="" method="post">{% csrf_token %}
+		<ul>
+			<li>
+				<label>{{ mailchimp.email_label }}</label>
+					{{ form.email }}
+				{% if form.email.errors %}
+					{% for error in form.email.errors %}
+						<div class="error">{{ error }}</div>
+					{% endfor %}
+				{% endif %}
+			</li>
+			{% if mailchimp.first_name_label %}
+			<li>
+				<label>{{ mailchimp.first_name_label }}</label>
+					{{ form.first_name }}
+				{% if form.first_name.errors %}
+					{% for error in form.first_name.errors %}
+						<div class="error">{{ error }}</div>
+					{% endfor %}
+				{% endif %}
+			</li>
+			{% endif %}
+			{% if mailchimp.last_name_label %}
+			<li>
+				<label>{{ mailchimp.last_name_label }}</label>
+					{{ form.last_name }}
+				{% if form.last_name.errors %}
+					{% for error in form.last_name.errors %}
+						<div class="error">{{ error }}</div>
+					{% endfor %}
+				{% endif %}
+			</li>
+			{% endif %}
+			<li>
+				<input type="submit"{% if mailchimp.submit %} value="{{ mailchimp.submit }}"{% endif %} />
+			</li>
+		</ul>
+	</form>
+
+{% else %}
+	<h2>{{ mailchimp.thanks }}</h2>
+{% endif %}

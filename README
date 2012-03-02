@@ -1,0 +1,29 @@
+=== INFO ===
+
+A django cms plugin for a mailchimp newsletter signup form.
+
+
+=== PREREQUISITES ===
+
+- install django_mailchimp:
+
+pip install --upgrade django_mailchimp
+
+
+=== INSTALL ===
+
+1) upload the directory 'cmsplugin_mailchimp' to the project folder.
+
+2) add the following entry to the urls.py:
+
+url(r'^mailchimp/', include('mailchimp.urls')),
+
+3) add the following entries to the INSTALLED_APPS in the settings.py
+
+'mailchimp',
+'<PROJECT_NAME>.cmsplugin_mailchimp',
+
+4) add your mailchimp api key to the settings.py:
+
+MAILCHIMP_API_KEY = '<YOUR MAILCHIMP API KEY>'
+
